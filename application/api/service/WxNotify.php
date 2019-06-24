@@ -14,7 +14,7 @@ use app\api\service\Order as OrderService;
 use app\lib\enum\OrderStatusEnum;
 use think\Db;
 use think\Exception;
-use think\facade\Log;
+use think\Log;
 use think\facade\App;
 
 require_once App::getRootPath() . 'extend/WxPay/WxPay.Api.php';

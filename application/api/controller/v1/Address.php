@@ -9,13 +9,16 @@
 namespace app\api\controller\v1;
 
 use app\api\controller\BaseController;
+use app\api\model\TbMember;
 use app\api\model\UserAddress;
 use app\api\validate\AddressNew;
 use app\api\service\Token as TokenService;
 use app\api\model\User as UserModel;
+use app\lib\enum\UserTypeEnum;
 use app\lib\exception\SuccessMessage;
 use app\lib\exception\TokenException;
 use app\lib\exception\UserException;
+use think\Log;
 
 
 /**
@@ -55,8 +58,15 @@ class Address extends BaseController
 		$validate->goCheck();
 		// 获取当前用户的ID
 		$uid = TokenService::getCurrentUId();
+		$type = TokenService::getCurrentTokenVar('type');
+		Log::record($type);
+
 		// 根据ID获取用户信息
-		$user = UserModel::get($uid);
+		if ($type == UserTypeEnum::User) {
+			$user = UserModel::get($uid);
+		} else if ($type == UserTypeEnum::Member) {
+			$user = TbMember::get($uid);
+		}
 
 		if (!$user) {
 			throw  new UserException();
@@ -127,6 +137,9 @@ class Address extends BaseController
 //      ]);
 //    }
 
-		return $userAddress;
+		return [
+			'data' => $userAddress,
+			'errorCode' => 0
+		];
 	}
 }

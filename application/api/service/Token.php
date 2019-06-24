@@ -49,7 +49,6 @@ class Token
 			throw new TokenException();
 		} else {
 			Log::record($vars);
-			Log::record($key);
 			if (!is_array($vars)) {
 				$vars = json_decode($vars, true);
 			}

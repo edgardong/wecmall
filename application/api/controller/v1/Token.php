@@ -108,6 +108,7 @@ class Token
 		// 获取参数
 		$dataArray = $validate->getDataByRule(input('post.'));
 		$dataArray['register_type'] = $type;
+		$dataArray['id'] = create_guid('member');
 		Log::record($dataArray);
 		return TbMember::create($dataArray);
 	}

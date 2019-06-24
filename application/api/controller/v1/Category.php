@@ -39,6 +39,7 @@ class Category extends BaseController
 	{
 		$validate = new CategoryValidate();
 		$arrayData = $validate->getDataByRule(input('put.'));
+		Log::record('updateCategory---------------------------------');
 		Log::record($arrayData);
 		$result = CategoryModel::update($arrayData, ['id', '=', $arrayData['id']]);
 		return $result;

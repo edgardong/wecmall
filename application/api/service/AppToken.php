@@ -12,6 +12,7 @@ namespace app\api\service;
 use app\api\model\TbMember;
 use app\api\model\ThirdApp;
 use app\lib\enum\ScopeEnum;
+use app\lib\enum\UserTypeEnum;
 use app\lib\exception\TokenException;
 
 class AppToken extends Token
@@ -36,6 +37,7 @@ class AppToken extends Token
 			$scope = $app->scope;
 			$uid = $app->id;
 			$values = [
+				'type' => UserTypeEnum::ThirdApp,
 				'scope' => $scope,
 				'uid' => $uid
 			];
@@ -64,6 +66,7 @@ class AppToken extends Token
 			$scope = ScopeEnum::User;
 			$uid = $app->id;
 			$values = [
+				'type' => UserTypeEnum::Member,
 				'scope' => $scope,
 				'uid' => $uid
 			];

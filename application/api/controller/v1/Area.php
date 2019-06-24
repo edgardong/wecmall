@@ -12,6 +12,7 @@ use app\api\model\TArea as AreaModel;
 
 use app\api\controller\BaseController;
 use app\lib\exception\AreaException;
+use think\Log;
 
 class Area extends BaseController
 {
@@ -49,7 +50,6 @@ class Area extends BaseController
   public function getAllArea()
   {
     $data = cache('base_area');
-
     if (!$data) {
 
       $areas = AreaModel::order('parentId', 'desc')

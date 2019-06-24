@@ -13,7 +13,7 @@ class AccessToken
 {
   private $tokenUrl;
   const TOKEN_CACHED_KEY = 'access';
-  const TOKEN_EXPIRE_IN = 0;
+	const TOKEN_EXPIRE_IN = 7100;
 
   function __construct()
   {

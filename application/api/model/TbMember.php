@@ -18,4 +18,9 @@ class TbMember extends BaseModel
 			->find();
 		return $app;
 	}
+
+	public function address()
+	{
+		return $this->hasOne('UserAddress', 'user_id', 'id');
+	}
 }
