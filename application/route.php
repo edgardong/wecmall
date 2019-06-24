@@ -11,6 +11,9 @@
 
 use think\Route;
 
+// 引入 blog模块下的路由
+require_once(__DIR__.'/blog/route.php');
+
 // API文档部分路由
 Route::get('api/apis', 'api/v1.ApiDocs/getApiDocs');
 
