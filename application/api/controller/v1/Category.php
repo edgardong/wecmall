@@ -31,6 +31,10 @@ class Category extends BaseController
 		return $categories;
 	}
 
+	public function  getPaginationCategory(){
+
+	}
+
 	/**
 	 * 更新分类名称
 	 * @throws
@@ -39,7 +43,6 @@ class Category extends BaseController
 	{
 		$validate = new CategoryValidate();
 		$arrayData = $validate->getDataByRule(input('put.'));
-		Log::record('updateCategory---------------------------------');
 		Log::record($arrayData);
 		$result = CategoryModel::update($arrayData, ['id', '=', $arrayData['id']]);
 		return $result;

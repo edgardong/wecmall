@@ -16,6 +16,7 @@ use app\api\model\Order as OrderModel;
 use app\api\validate\IDMustBePositiveInt;
 use app\api\validate\OrderPlace;
 use app\api\validate\PagingParameter;
+use app\lib\core\Result;
 use app\lib\exception\OrderException;
 use app\lib\exception\SuccessMessage;
 use think\Log;
@@ -59,7 +60,7 @@ class Order extends BaseController
 	{
 		(new PagingParameter())->goCheck();
 		$uid = TokenService::getCurrentUId();
-		Log::record('getSummaryByUser' . $uid);
+//		Log::record('getSummaryByUser' . $uid);
 		$pagingOrders = OrderModel::getSummaryByUser($uid, $page, $size);
 		if ($pagingOrders->isEmpty()) {
 			return [
@@ -72,6 +73,22 @@ class Order extends BaseController
 			'data' => $pagingOrders->hidden(['snap_items', 'snap_address', 'prepay_id'])->toArray(),
 			'current_page' => $page,
 		];
+	}
+
+	/**
+	 * 获取所有订单列表
+	 * @param int $page
+	 * @param int $size
+	 * @return array
+	 * @throws \app\lib\exception\ParameterException
+	 */
+	public function getAllOrder($page = 1, $size = 15)
+	{
+		(new PagingParameter())->goCheck();
+		$orders = OrderModel::getSummaryByPage($page, $size);
+
+		return ['data' => $orders,
+			'current_page' => $page];
 	}
 
 	/**
@@ -114,12 +131,19 @@ class Order extends BaseController
 		$data = $pagingOrders->hidden(['snap_items', 'snap_address'])
 			->toArray();
 
-		return [
-			'current_page' => $page,
-			'data' => $data
-		];
+		return Result::ok($data);
 	}
 
+	/**
+	 * 发送模版信息
+	 * @param $id
+	 * @return SuccessMessage
+	 * @throws OrderException
+	 * @throws \app\lib\exception\ParameterException
+	 * @throws \think\db\exception\DataNotFoundException
+	 * @throws \think\db\exception\ModelNotFoundException
+	 * @throws \think\exception\DbException
+	 */
 	public function delivery($id)
 	{
 		(new IDMustBePositiveInt())->goCheck();

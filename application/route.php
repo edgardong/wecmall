@@ -29,6 +29,7 @@ Route::get('api/:version/theme/:id', 'api/:version.Theme/getComplexOne');
 
 // 商品部分分类
 Route::group('api/:version/product', function () {
+	Route::get('/all', 'api/:version.Product/getAllProduct');
 	Route::get('/by_category', 'api/:version.Product/getAllInCategory');
 	Route::get('/:id', 'api/:version.Product/getOne', [], ['id' => '\d+']);
 	Route::get('/recent', 'api/:version.Product/getRecent');

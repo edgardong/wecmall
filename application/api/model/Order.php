@@ -66,7 +66,7 @@ class Order extends BaseModel
   public static function getSummaryByPage($page, $size)
   {
     $pagingData = self::order('create_time desc')
-      ->paginate($size, true, ['page' => $page]);
+      ->paginate($size, false, ['page' => $page]);
 
     return $pagingData;
   }
