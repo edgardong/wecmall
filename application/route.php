@@ -37,6 +37,7 @@ Route::group('api/:version/product', function () {
 
 // 商品分类部分路由
 Route::get('api/:version/category/all', 'api/:version.Category/getAllCategories');
+Route::get('api/:version/category/pagination', 'api/:version.Category/getPaginationCategory');
 Route::post('api/:version/category', 'api/:version.Category/addCategory');
 Route::put('api/:version/category', 'api/:version.Category/updateCategory');
 Route::delete('api/:version/category/:id', 'api/:version.Category/delCategory');

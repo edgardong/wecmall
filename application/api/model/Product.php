@@ -52,6 +52,11 @@ class Product extends BaseModel
 		return $this->hasMany('ProductProperty', 'product_id', 'id');
 	}
 
+	public function category()
+	{
+		return $this->belongsTo('Category', 'category_id', 'id');
+	}
+
 
 	/**
 	 * 获取所有产品列表
@@ -62,7 +67,8 @@ class Product extends BaseModel
 	 */
 	public static function getAllProduct($page, $size)
 	{
-		$products = self::order('create_time desc')
+		$products = self::with('category')
+			->order('create_time desc')
 			->paginate($size, false, ['page' => $page]);
 		return $products;
 	}
@@ -107,6 +113,7 @@ class Product extends BaseModel
 						->order('order', 'asc');
 				}])
 			->with('properties')
+			->with('category')
 			->find($id);
 
 //    $product = self::with(['imgs1.ImgUrl', 'properties'])

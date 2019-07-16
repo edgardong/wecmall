@@ -10,6 +10,7 @@ namespace app\api\controller\v1;
 
 use app\api\controller\BaseController;
 use app\api\model\Category as CategoryModel;
+use app\lib\core\Result;
 use app\lib\exception\CategoryException;
 use app\api\validate\Category as CategoryValidate;
 use think\Log;
@@ -31,8 +32,17 @@ class Category extends BaseController
 		return $categories;
 	}
 
-	public function  getPaginationCategory(){
-
+	/**
+	 * 获取所有分类
+	 * @param int $page
+	 * @param int $size
+	 * @return array
+	 * @throws \think\exception\DbException
+	 */
+	public function getPaginationCategory($page = 1, $size = 20)
+	{
+		$data = CategoryModel::getAllCategory($page, $size);
+		return Result::ok($data);
 	}
 
 	/**
