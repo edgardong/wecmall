@@ -6,7 +6,7 @@
  * Time: 16:03
  */
 
-namespace app\api\controller\v1;
+namespace app\api\controller\store\v1;
 
 use app\api\validate\IDMustBePositiveInt;
 use app\api\model\Banner as BannerModel;

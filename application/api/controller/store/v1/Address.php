@@ -6,7 +6,7 @@
  * Time: 16:30
  */
 
-namespace app\api\controller\v1;
+namespace app\api\controller\store\v1;
 
 use app\api\controller\BaseController;
 use app\api\model\TbMember;

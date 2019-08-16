@@ -6,7 +6,7 @@
  * Time: 13:45
  */
 
-namespace app\api\controller\v1;
+namespace app\api\controller\store\v1;
 
 require(APP_PATH . "../vendor/autoload.php");
 

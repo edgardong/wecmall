@@ -6,7 +6,7 @@
  * Time: 11:31
  */
 
-namespace app\api\controller\v1;
+namespace app\api\controller\store\v1;
 
 use app\api\controller\BaseController;
 use app\api\model\Category as CategoryModel;

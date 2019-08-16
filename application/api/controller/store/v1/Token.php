@@ -6,7 +6,7 @@
  * Time: 13:18
  */
 
-namespace app\api\controller\v1;
+namespace app\api\controller\store\v1;
 
 use app\api\model\TbMember;
 use app\api\service\AppToken;

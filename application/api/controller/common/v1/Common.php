@@ -6,7 +6,7 @@
  * Time: 17:51
  */
 
-namespace app\api\controller\v1;
+namespace app\api\controller\common\v1;
 
 use app\api\service\Common as CommonService;
 use think\Log;

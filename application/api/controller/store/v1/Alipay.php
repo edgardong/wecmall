@@ -6,7 +6,7 @@
  * Time: 16:00
  */
 
-namespace app\api\controller\v1;
+namespace app\api\controller\store\v1;
 
 use app\api\model\Order as OrderModel;
 use app\api\model\Product;

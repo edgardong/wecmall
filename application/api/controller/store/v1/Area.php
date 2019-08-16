@@ -6,7 +6,7 @@
  * Time: 14:29
  */
 
-namespace app\api\controller\v1;
+namespace app\api\controller\store\v1;
 
 use app\api\model\TArea as AreaModel;
 
