@@ -4,4 +4,4 @@ composer.lock
 thinkphp
 runtime
 **/cert
-**/WxPay.Config.php
+extend/WxPay/WxPay.Config.php
