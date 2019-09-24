@@ -1,12 +1,13 @@
 {
     "swagger": "2.0",
     "info": {
-        "title": "\u96c5\u6587\u7834\u51b0 Api \u6587\u6863",
-        "description": "\u96c5\u6587\u7834\u51b0\u540e\u53f0 Api \u6587\u6863",
+        "title": "\u96c5\u6587\u7834\u51b0 API \u6587\u6863",
+        "description": "\u96c5\u6587\u7834\u51b0\u540e\u53f0 API \u6587\u6863",
         "version": "1.0.0"
     },
+    "host": "localhost/wecstore/public/index.php",
     "paths": {
-        "/api/v1/address": {
+        "/api/store/v1/address": {
             "get": {
                 "tags": [
                     "\u7528\u6237\u5730\u5740"
