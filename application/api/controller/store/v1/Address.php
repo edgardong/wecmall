@@ -22,11 +22,15 @@ use think\Log;
 
 
 /**
- * @SWG\Info(
+ * @SWG\Swagger(
+ * 		@SWG\Info(
  *     version="1.0.0",
- *     title="雅文破冰 Api 文档",
- *     description="雅文破冰后台 Api 文档"
+ *     title="雅文破冰 API 文档",
+ *     description="雅文破冰后台 API 文档"
+ * 		),
+ *   host="localhost/wecstore/public/index.php"
  * )
+ *
  */
 class Address extends BaseController
 {
@@ -36,7 +40,7 @@ class Address extends BaseController
 
 	/**
 	 * @SWG\Post(
-	 *     path="/api/v1/address",
+	 *     path="/api/store/v1/address",
 	 *     tags={"用户地址"},
 	 *     summary="保存用户地址",
 	 *     description="保存用户的地址",
@@ -59,7 +63,6 @@ class Address extends BaseController
 		// 获取当前用户的ID
 		$uid = TokenService::getCurrentUId();
 		$type = TokenService::getCurrentTokenVar('type');
-		Log::record($type);
 
 		// 根据ID获取用户信息
 		if ($type == UserTypeEnum::User) {
@@ -90,7 +93,7 @@ class Address extends BaseController
 
 	/**
 	 * @SWG\Get(
-	 *     path="/api/v1/address",
+	 *     path="/api/store/v1/address",
 	 *     summary="获取用户地址",
 	 *     tags={"用户地址"},
 	 *     @SWG\Tag(

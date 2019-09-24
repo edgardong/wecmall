@@ -5,3 +5,5 @@ thinkphp
 runtime
 **/cert
 extend/WxPay/WxPay.Config.php
+application/extra/alipay.php
+application/extra/wechat.php

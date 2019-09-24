@@ -15,7 +15,7 @@ use think\Route;
 //require_once(__DIR__ . '/blog/route.php');
 
 // API文档部分路由
-//Route::get('api/apis', 'api/v1.ApiDocs/getApiDocs');
+Route::get('api/apis', 'api/store.v1.ApiDocs/getApiDocs');
 
 
 // 公共接口部分

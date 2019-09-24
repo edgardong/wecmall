@@ -32,7 +32,6 @@ class Token
 		(new TokenGet())->goCheck();
 		// 根据来源获取不同的token
 		$type = Request::instance()->header('source');
-
 		$ut = new UserToken($code, $type);
 		$token = $ut->get();
 
@@ -109,7 +108,7 @@ class Token
 		$dataArray = $validate->getDataByRule(input('post.'));
 		$dataArray['register_type'] = $type;
 		$dataArray['id'] = create_guid('member');
-		Log::record($dataArray);
+//		Log::record($dataArray);
 		return TbMember::create($dataArray);
 	}
 }

@@ -12,13 +12,13 @@
 return [
     // 数据库类型
     'type'            => 'mysql',
-    // 服务器地址
+    // 服务器地址	bdm245672217.my3w.com	127.0.0.1
     'hostname'        => 'bdm245672217.my3w.com',
-    // 数据库名
+    // 数据库名	bdm245672217_db	wecstore
     'database'        => 'bdm245672217_db',
-    // 用户名
+    // 用户名  bdm245672217		root
     'username'        => 'bdm245672217',
-    // 密码
+    // 密码	P@ssw0rd	edgardong
     'password'        => 'P@ssw0rd',
     // 端口
     'hostport'        => '3306',
@@ -48,8 +48,8 @@ return [
     'resultset_type'  => 'collection',
     // 自动写入时间戳字段
     'auto_timestamp'  => false,
-    // 时间字段取出后的默认时间格式
-    'datetime_format' => 'Y-m-d H:i:s',
+    // 时间字段取出后的默认时间格式  'Y-m-d H:i:s'
+    'datetime_format' => false,
     // 是否需要进行SQL性能分析
     'sql_explain'     => false,
 ];
